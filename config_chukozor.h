@@ -9,6 +9,9 @@
 #endif
 
 // =====================================================================
+#define ENCODER_RESOLUTION { 4 }
+#define ENCODER_RESOLUTIONS_RIGHT { 4 }
+// =====================================================================
 #define SPLIT_POINTING_ENABLE
 #define POINTING_DEVICE_RIGHT
 #define CIRQUE_PINNACLE_DIAMETER_MM 40
