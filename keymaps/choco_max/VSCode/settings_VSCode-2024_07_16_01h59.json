@@ -1,0 +1,91 @@
+{
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.mouseWheelScrollSensitivity": 5,
+  "editor.fontSize": 16,
+  "git.autofetch": true,
+  "files.associations": {
+    "*.h": "c",
+    "*.gcode": "gcode"
+  },
+  //   "terminal.integrated.profiles.windows": {
+  //     "QMK_MSYS": {
+  //         "path": "C:/QMK_MSYS/usr/bin/bash.exe",
+  //         "env": {
+  //             "MSYSTEM": "MINGW64",
+  //             "CHERE_INVOKING": "1"
+  //         },
+  //         "args": ["--login"]
+  //     }
+  // },
+  "terminal.integrated.cursorStyle": "line",
+  "security.workspace.trust.untrustedFiles": "open",
+  "C_Cpp.updateChannel": "Insiders",
+  "yaml.schemas": {
+    "file:///c%3A/Users/PUT_MY_USER_NAME_HER/.vscode/extensions/atlassian.atlascode-3.0.3/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+    // TODO put name of user in the adress
+  },
+  "atlascode.bitbucket.enabled": true,
+  "editor.wordWrap": "on",
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  "window.zoomLevel": 1,
+  "explorer.confirmDragAndDrop": false,
+  "workbench.settings.applyToAllProfiles": [],
+  "C_Cpp.dimInactiveRegions": false,
+
+  // The number of spaces a tab is equal to. This setting is overridden
+  // based on the file contents when `editor.detectIndentation` is true.
+  "editor.tabSize": 2,
+
+  // Insert spaces when pressing Tab. This setting is overriden
+  // based on the file contents when `editor.detectIndentation` is true.
+  "editor.insertSpaces": true,
+
+  // When opening a file, `editor.tabSize` and `editor.insertSpaces`
+  // will be detected based on the file contents. Set to false to keep
+  // the values you've explicitly set, above.
+  "editor.detectIndentation": false,
+
+
+  // "todo-tree.highlights.defaultHighlight": {
+  //   "icon": "alert",
+  //   "type": "text",
+  //   "foreground": "black",
+  //   "background": "orange",
+  //   "opacity": 50,
+  //   "iconColour": "orange"
+  // },
+  "todo-tree.highlights.customHighlight": {
+    "TODO": {
+      "icon": "star-fill",
+      "type": "line",
+      "foreground": "black",
+      "background": "yellow",
+      "iconColour": "orange",
+      "gutterIcon": true
+    },
+    "FIXME": {
+      "icon": "alert-fill",
+      "type": "line",
+      "foreground": "black",
+      "background": "chartreuse",
+      "iconColour": "orange",
+      "gutterIcon": true
+    },
+    "XXX": {
+      "icon": "alert-fill",
+      "type": "none",
+      "foreground": "black",
+      "background": "chartreuse",
+      "iconColour": "orange",
+      "gutterIcon": true
+    }
+  },
+  "[c]": {
+    "editor.defaultFormatter": "ms-vscode.cpptools"
+  },
+  "[yaml]": {
+    "editor.autoIndent": "advanced"
+  },
+  "editor.autoIndent": "advanced"
+}

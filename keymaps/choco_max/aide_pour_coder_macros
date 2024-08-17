@@ -1,0 +1,57 @@
+code pour aider :
+dans le keymap : A(KC_F4) donne "ALT+F4".
+
+void tap_e_grave(void) {
+	add_mods(MOD_BIT_LALT);
+	tap_code(KC_KP_1);
+	tap_code(KC_KP_3);
+	tap_code(KC_KP_8);
+	unregister_mods(MOD_BIT_LALT);
+}
+NB : suivant le cas, essayer avec
+	  register_mods(MOD_BIT_LSHIFT);
+ ou avec add_mods(MOD_BIT_LSHIFT);
+
+// =====================================================
+case HT_SPC:
+  if (record->tap.count) { // Tap
+    if (record->event.pressed) {
+      // logic when pressed
+    } else {
+      // logic when released
+    }
+  } else { // Hold
+    if (record->event.pressed) {
+      // logic when pressed
+      if (record->tap.interrupted) {
+        // logic when interrupted
+      } else {
+        // logic when not interrupted
+      }
+    } else {
+      // logic when released
+    }
+  }
+  return false;
+
+// =====================================================
+  bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case LT(_MOVE, KC_BSPC):
+            if (!record->tap.count && record->tap.interrupted) {
+                if (record->event.pressed) {
+                    layer_on(_MOVE);
+                } else {
+                    layer_off(_MOVE);
+                }
+            } else {
+                if (record->event.pressed) {
+                    register_code(KC_BSPC);
+                } else {
+                    unregister_code(KC_BSPC);
+                }
+            }
+            return false;
+    }
+    return true;
+}

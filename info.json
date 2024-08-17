@@ -44,8 +44,8 @@
     "processor": "atmega32u4",
     "development_board": "promicro",
     "layout_aliases": {
-        "CHOCO_MAXI": "CHOCO_3x6",
-        "CHOCO_MINI": "CHOCO_3x5"
+        "CHOCO_MAX": "CHOCO_3x6",
+        "CHOCO_MIN": "CHOCO_3x5"
     },
     "layouts": {
         "CHOCO_3x5": {
