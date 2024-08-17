@@ -26,5 +26,6 @@
   "diode_direction": "COL2ROW",
   "split": {
       "enabled": true
-  }
+  },
+  "processor": "atmega32u4",
 }

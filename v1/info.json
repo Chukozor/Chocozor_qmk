@@ -1,5 +1,4 @@
 {
-  "processor": "atmega32u4",
   // "encoder": {
   //   "enabled": true,
   //   "rotary": [
