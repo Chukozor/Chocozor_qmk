@@ -1,19 +1,6 @@
 {
-  // "encoder": {
-  //   "enabled": true,
-  //   "rotary": [
-  //       {"pin_a": "B2", "pin_b": "B6"}
-  //   ]
-  // },
   "split": {
-    "soft_serial_pin": "D2",
-    // "encoder": {
-    //   "right": {
-    //     "rotary": [
-    //       {"pin_a": "B2", "pin_b": "B6"}
-    //     ]
-    //   }
-    // }
+    "soft_serial_pin": "D2"
   },
   "development_board": "promicro",
   "layouts": {
