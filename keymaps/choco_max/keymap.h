@@ -29,8 +29,6 @@
 #define MO_FN MO(_F_KEYS)
 #define MO_OX_G MO(_AUX_GAME)
 
-#define T_NAV_L TG(_NAV_LEFT)
-
 // #define MY_NAV MO(_NAV)
 // #define MO_SPE MO(_SPE)
 #define HT_ENT LT(_REG_SPE, KC_ENT)
