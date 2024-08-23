@@ -60,7 +60,7 @@ tap_dance_action_t tap_dance_actions[] = {
 #define MY_NAV TD(TD_NAV_KEYS)
 #define MY_SPC TD(TD_SPC)
 #define MY_ENT TD(TD_ENT)
-#define MY_LCTL TD(TD_LCTL)
+// #define MY_LCTL TD(TD_LCTL)
 
 // -------------------------------------------------------
 

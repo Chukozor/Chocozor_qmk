@@ -38,6 +38,12 @@
 // #define MO_COLFR TO(_COLEMAK_FR)
 // #define MO_GAMING TO(_GAMING)
 
+#define MY_LCTL KC_LCTL
+#define MY_RCTL KC_RCTL
+// #define NAV_LFT TG(_NAV_LEFT)
+#define NAV_LFT KC_NO
+
+
 bool test_game_mode(void);
 void toggle_game_mode(bool);
 
