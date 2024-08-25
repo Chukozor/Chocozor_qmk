@@ -41,7 +41,7 @@
 #define MY_LCTL KC_LCTL
 #define MY_RCTL KC_RCTL
 // #define NAV_LFT TG(_NAV_LEFT)
-#define NAV_LFT KC_NO
+#define NAV_LFT KC_LCTL
 
 
 bool test_game_mode(void);

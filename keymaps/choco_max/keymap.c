@@ -55,10 +55,14 @@ enum combos {
   // COMBO_E_AIGU
 };
 
+
+
+
+
 // const uint16_t PROGMEM temp_active_RGB[] = {MY_ENT, HT_SPC, COMBO_END};
 const uint16_t PROGMEM temp_active_MULTIMEDIA[] = {KC_LGUI, MY_NAV, HT_SPC, COMBO_END};
 const uint16_t PROGMEM temp_active_SHIFT[] = {CSTM_ENT, HT_SPC, COMBO_END};
-const uint16_t PROGMEM temp_active_boot[] = {MY_NAV,HT_SPC,KC_LGUI,KC_LALT,CSTM_ENT,NAV_LFT, COMBO_END};
+const uint16_t PROGMEM temp_active_boot[] = {MY_NAV,HT_SPC,KC_LGUI,KC_LALT,CSTM_ENT, COMBO_END};
 // const uint16_t PROGMEM toggle_gaming[] = {FR_Q,FR_W,KC_F,KC_P,KC_G, COMBO_END};
 const uint16_t PROGMEM toggle_game[] = {FR_A,KC_R,KC_S,KC_T,KC_D, COMBO_END};
 const uint16_t PROGMEM toggle_game2[] = {KC_LSFT,FR_A,FR_W,KC_D,KC_T, COMBO_END};
@@ -81,7 +85,6 @@ combo_t key_combos[] = {
     [TOGGLE_GAME]=COMBO(toggle_game, TG_GAME),
     [TOGGLE_GAME2]=COMBO(toggle_game2, TG_GAME),
     [COMBO_OSM_SHIFT]=COMBO(temp_active_SHIFT, OSM(MOD_LSFT)),
-    [COMBO_BOOT]=COMBO(temp_active_boot, QK_BOOT),
     [COMBO_BOOT]=COMBO(temp_active_boot, QK_BOOT),
     [FAST_SWITCH_GAME_COLEMAK_COMBO]=COMBO(fast_switch_game_colemak_combo, FAST_SWITCH_GAME_COLEMAK),
     [FAST_SWITCH_GAME_COLEMAK_COMBO2]=COMBO(fast_switch_game_colemak_combo2, FAST_SWITCH_GAME_COLEMAK),
@@ -163,7 +166,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------+--------|
       MY_LSFT,    FR_Z,    KC_X,    KC_C,    KC_V,    KC_B,                           KC_K,    FR_M, FR_COMM,  FR_DOT, FR_QUES, MY_LSFT,
   //|--------------------------------------------------------------|     |-------------------------------------------------------------|
-                        XXXXXXX, XXXXXXX, KC_LGUI,  MY_NAV,  HT_SPC,      KC_LALT,CSTM_ENT, NAV_LFT, XXXXXXX, XXXXXXX
+                        KC_ENT, KC_ENT, KC_LGUI,  MY_NAV,  HT_SPC,        HT_SPC, CSTM_ENT, KC_LALT, KC_ENT, KC_ENT
                      //`-------------------------------------------'     `-------------------------------------------'
   ),
     // OTHER_GAMING for gaming
