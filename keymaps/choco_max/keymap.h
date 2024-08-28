@@ -42,6 +42,7 @@
 #define MY_RCTL KC_RCTL
 // #define NAV_LFT TG(_NAV_LEFT)
 #define NAV_LFT KC_LCTL
+#define MOFKEYS MO(_F_KEYS)
 
 
 bool test_game_mode(void);
