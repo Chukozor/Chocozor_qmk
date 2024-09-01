@@ -2,8 +2,21 @@
     "features": {
         "rgblight": true
     },
+    "encoder": {
+      "enabled": true,
+      "rotary": [
+        {"pin_a": "B2", "pin_b": "B6"}
+      ]
+    },
     "split": {
-        "soft_serial_pin": "D2"
+        "soft_serial_pin": "D2",
+        "encoder": {
+          "right": {
+              "rotary": [
+                  {"pin_a": "B6", "pin_b": "B2"}
+              ]
+          }
+        }
     },
     "rgblight": {
         "led_count": 54,
