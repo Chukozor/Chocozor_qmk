@@ -150,4 +150,6 @@ enum custom_keycodes {
     MY_NAV_FROM_OP,
     TG_GAME,
     FAST_SWITCH_GAME_COLEMAK,
+    HALF_PAGE_DOWN,
+    HALF_PAGE_UP,
 };

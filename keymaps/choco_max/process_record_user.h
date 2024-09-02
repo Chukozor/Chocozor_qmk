@@ -542,7 +542,24 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             // press(MY_LCTL AND MY_LSFT)
             return false;
-          }   
+          }
+
+        case HALF_PAGE_DOWN:
+          if (record->event.pressed) {
+              // Send multiple KC_DOWN keycodes to simulate "half page down"
+              for (int i = 0; i < 10; i++) { // Adjust 10 to the number of lines you want to scroll
+                  tap_code(KC_DOWN);
+              }
+          }
+          return false; // Skip further processing of this key
+        case HALF_PAGE_UP:
+          if (record->event.pressed) {
+              // Send multiple KC_DOWN keycodes to simulate "half page down"
+              for (int i = 0; i < 10; i++) { // Adjust 10 to the number of lines you want to scroll
+                  tap_code(KC_UP);
+              }
+          }
+          return false; // Skip further processing of this key
 
   }
   return true;

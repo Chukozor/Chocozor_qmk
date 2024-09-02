@@ -509,7 +509,7 @@ void pointing_device_init_user(void) {
 // ENCODERS :
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
         // Mappings for 1st Encoder          // Mappings for 2nd Encoder
-  [0] = { ENCODER_CCW_CW(KC_PGUP, KC_PGDN),  ENCODER_CCW_CW(KC_VOLD, KC_VOLU)  }, // Mapping for Base layer
+  [0] = { ENCODER_CCW_CW(HALF_PAGE_UP, HALF_PAGE_DOWN),  ENCODER_CCW_CW(KC_VOLD, KC_VOLU)  }, // Mapping for Base layer
   [1] = { ENCODER_CCW_CW(KC_PGUP, KC_PGDN),  ENCODER_CCW_CW(KC_VOLD, KC_VOLU)  }, // Mapping for Base layer
   [2] = { ENCODER_CCW_CW(KC_PGUP, KC_PGDN),  ENCODER_CCW_CW(KC_VOLD, KC_VOLU)  }, // Mapping for Base layer
   [3] = { ENCODER_CCW_CW(KC_PGUP, KC_PGDN),  ENCODER_CCW_CW(KC_VOLD, KC_VOLU)  }, // Mapping for Base layer
