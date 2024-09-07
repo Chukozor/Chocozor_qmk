@@ -44,6 +44,10 @@
 #define NAV_LFT KC_LCTL
 #define MOFKEYS MO(_F_KEYS)
 
+// #define MS_ACL0 QK_MOUSE_ACCELERATION_0
+// #define MS_ACL1 QK_MOUSE_ACCELERATION_1
+// #define MS_ACL2 QK_MOUSE_ACCELERATION_2
+
 
 bool test_game_mode(void);
 void toggle_game_mode(bool);
