@@ -43,6 +43,7 @@
 // #define NAV_LFT TG(_NAV_LEFT)
 #define NAV_LFT KC_LCTL
 #define MOFKEYS MO(_F_KEYS)
+#define MOWEBBR MO(_WEB_BROWSER)
 
 // #define MS_ACL0 QK_MOUSE_ACCELERATION_0
 // #define MS_ACL1 QK_MOUSE_ACCELERATION_1
@@ -87,8 +88,8 @@ enum layers{
     _CAPS_LOCK,
     _F_KEYS,
     _NAV_LEFT,
-    _WEB_BROWSER,
     _NAV,
+    _WEB_BROWSER,
     _OP_NAV,
     _MOUSE_LAYER,
     _ACCENTS,
@@ -156,4 +157,5 @@ enum custom_keycodes {
     FAST_SWITCH_GAME_COLEMAK,
     HALF_PAGE_DOWN,
     HALF_PAGE_UP,
+    WEB_OFF,
 };

@@ -82,7 +82,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // #define CIRQUE_PINNACLE_TAP_ENABLE
 // #define CIRQUE_PINNACLE_SECONDARY_TAP_ENABLE
-#define POINTING_DEVICE_GESTURES_SCROLL_ENABLE
+// #define POINTING_DEVICE_GESTURES_SCROLL_ENABLE
 
 // Enables support for extended i16 mouse reports (instead of i8).
 #define MOUSE_EXTENDED_REPORT

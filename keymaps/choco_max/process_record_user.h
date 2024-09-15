@@ -545,21 +545,56 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           }
 
         case HALF_PAGE_DOWN:
-          if (record->event.pressed) {
+          if (IS_LAYER_ON(_WEB_BROWSER)) {
+            if (record->event.pressed) {
+              if (get_mods() != MOD_BIT(KC_LALT)) {
+                if (record->event.pressed) {
+                  register_code(KC_LCTL);
+                  SEND_STRING(SS_TAP(X_TAB));
+                  unregister_code(KC_LCTL);
+                } else {
+                SEND_STRING(SS_TAP(X_TAB));
+                }
+              }
+            }
+          } else {
+            if (record->event.pressed) {
               // Send multiple KC_DOWN keycodes to simulate "half page down"
               for (int i = 0; i < 10; i++) { // Adjust 10 to the number of lines you want to scroll
                   tap_code(KC_DOWN);
               }
+            }
           }
           return false; // Skip further processing of this key
+
         case HALF_PAGE_UP:
-          if (record->event.pressed) {
+          if (IS_LAYER_ON(_WEB_BROWSER)) {
+            if (record->event.pressed) {
+              if (get_mods() != MOD_BIT(KC_LALT)) {
+                if (record->event.pressed) {
+                  register_code(KC_LCTL);
+                  SEND_STRING(SS_LSFT(SS_TAP(X_TAB)));
+                  unregister_code(KC_LCTL);
+                } else {
+                SEND_STRING(SS_TAP(X_TAB));
+                }
+              }
+            }
+          } else {
+            if (record->event.pressed) {
               // Send multiple KC_DOWN keycodes to simulate "half page down"
               for (int i = 0; i < 10; i++) { // Adjust 10 to the number of lines you want to scroll
                   tap_code(KC_UP);
               }
+            }
           }
           return false; // Skip further processing of this key
+
+        case WEB_OFF:
+          if (IS_LAYER_ON(_WEB_BROWSER)) {
+            layer_off(_WEB_BROWSER);
+          }
+          return false;
 
   }
   return true;
