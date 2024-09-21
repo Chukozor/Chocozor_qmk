@@ -75,6 +75,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define CIRQUE_PINNACLE_DIAMETER_MM 35
 // #define CIRQUE_PINNACLE_CURVED_OVERLAY
 #define CIRQUE_PINNACLE_ATTENUATION EXTREG__TRACK_ADCCONFIG__ADC_ATTENUATE_4X
+#define POINTING_DEVICE_CIRQUE_PINNACLE_DPI 1150
 // #define POINTING_DEVICE_ROTATION_90
 
 // #define CIRQUE_PINNACLE_POSITION_MODE CIRQUE_PINNACLE_RELATIVE_MODE
@@ -94,9 +95,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define POINTING_DEVICE_AUTO_MOUSE_ENABLE
 // only required if not setting mouse layer elsewhere
 #define AUTO_MOUSE_DEFAULT_LAYER 10
-#define AUTO_MOUSE_TIME 400
-#define AUTO_MOUSE_DELAY 400
+#define AUTO_MOUSE_TIME 100
+#define AUTO_MOUSE_DELAY 5
+#define AUTO_MOUSE_DEBOUNCE 10
 #define AUTO_MOUSE_THRESHOLD 10
+
 // =====================================================================
 
 #undef SPLIT_OLED_ENABLE

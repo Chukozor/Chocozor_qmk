@@ -158,4 +158,8 @@ enum custom_keycodes {
     HALF_PAGE_DOWN,
     HALF_PAGE_UP,
     WEB_OFF,
+    DPI_INC,
+    DPI_DEC,
+    K_SNIPE,
+    K_BLITZ,
 };
