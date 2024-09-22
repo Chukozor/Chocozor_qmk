@@ -610,11 +610,25 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           return false;
         case K_SNIPE: /* Decrease trackpad DPI*/
           if (record->event.pressed) {
-            pointing_device_set_cpi(pointing_device_get_cpi()-300);
+            if (get_mods() == MOD_BIT(KC_LCTL)) {
+              unregister_mods(MOD_BIT_LCTRL);
+              alt_tab_menu = true;
+              SEND_STRING(SS_DOWN(X_LALT));
+              tap_code(KC_TAB);
+              wait_ms(5);
+              SEND_STRING(SS_UP(X_LALT));
+            } else {
+              pointing_device_set_cpi(pointing_device_get_cpi()-300);
+            }
           } else {
-            pointing_device_set_cpi(pointing_device_get_cpi()+300);
+            if (alt_tab_menu == true) {
+              alt_tab_menu = false;
+            } else {
+              pointing_device_set_cpi(pointing_device_get_cpi()+300);
+            }
           }
           return false;
+
         case K_BLITZ: /* Decrease trackpad DPI*/
           if (record->event.pressed) {
             pointing_device_set_cpi(pointing_device_get_cpi()+300);
