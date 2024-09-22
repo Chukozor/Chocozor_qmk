@@ -23,6 +23,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "custom_files/helpers.h"
 #include "custom_files/french_symbols/french_symbols.h"
 #include "custom_files/french_symbols/shift_behaviours.c"
+#include "pointing_device.h"
+
 // -----------------------------------
 bool game_mode = 0;
 bool test_game_mode(void){
@@ -64,7 +66,7 @@ enum combos {
 const uint16_t PROGMEM temp_active_MULTIMEDIA[] = {KC_LGUI, MY_NAV, HT_SPC, COMBO_END};
 const uint16_t PROGMEM temp_active_SHIFT[] = {CSTM_ENT, HT_SPC, COMBO_END};
 const uint16_t PROGMEM temp_active_boot[] = {MY_NAV,HT_SPC,KC_LGUI,KC_LALT,CSTM_ENT, COMBO_END};
-const uint16_t PROGMEM temp_active_boot2[] = {MO(_NAV),HT_SPC,KC_LGUI,KC_LALT,CSTM_ENT, COMBO_END};
+const uint16_t PROGMEM temp_active_boot2[] = {KC_LGUI,MY_NAV,HT_SPC,MOFKEYS, CSTM_ENT,KC_LALT, COMBO_END};
 // const uint16_t PROGMEM toggle_gaming[] = {FR_Q,FR_W,KC_F,KC_P,KC_G, COMBO_END};
 const uint16_t PROGMEM toggle_game[] = {FR_A,KC_R,KC_S,KC_T,KC_D, COMBO_END};
 const uint16_t PROGMEM toggle_game2[] = {KC_LSFT,FR_A,FR_W,KC_D,KC_T, COMBO_END};
@@ -516,6 +518,38 @@ void pointing_device_init_user(void) {
 
 // #include "custom_files/trackpad/scrolling.h"
 
+// ==============================================
+// SCROLLING WITH TRACKPAD
+// Modify these values to adjust the scrolling speed
+#define SCROLL_DIVISOR_H 14.0
+#define SCROLL_DIVISOR_V 14.0
+
+// Variables to store accumulated scroll values
+float scroll_accumulated_h = 0;
+float scroll_accumulated_v = 0;
+report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
+    
+    // Check if _REG_SPE is on
+    if (set_scrolling || IS_LAYER_ON(_F_KEYS)) {
+      // Calculate and accumulate scroll values based on mouse movement and divisors
+      scroll_accumulated_h += (float)mouse_report.x / SCROLL_DIVISOR_H;
+      scroll_accumulated_v += (float)mouse_report.y / SCROLL_DIVISOR_V;
+
+      // Assign integer parts of accumulated scroll values to the mouse report
+      mouse_report.h = (int8_t)scroll_accumulated_h;
+      mouse_report.v = -(int8_t)scroll_accumulated_v;
+
+      // Update accumulated scroll values by subtracting the integer parts
+      scroll_accumulated_h -= (int8_t)scroll_accumulated_h;
+      scroll_accumulated_v -= (int8_t)scroll_accumulated_v;
+
+      // Clear the X and Y values of the mouse report
+      mouse_report.x = 0;
+      mouse_report.y = 0;
+    }
+    return mouse_report;
+}
+// ==============================================
 // ==============================================
 // ENCODERS :
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {

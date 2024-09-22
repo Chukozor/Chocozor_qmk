@@ -4,6 +4,7 @@
 bool alt_tab_menu = false;
 bool ky_webnav = false;
 bool ky_spc = false;
+bool set_scrolling = false;
 
 #include "custom_files/functions_record_user.h"
 
@@ -222,6 +223,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
               shift_activated = false;
               trace_op_nav = false;
               game_mode = false;
+              set_scrolling = false;
               // spc_is_held = false;
               layer_move(_COLEMAK_FR);
               if (record->tap.interrupted) {
@@ -620,7 +622,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             pointing_device_set_cpi(pointing_device_get_cpi()-300);
           }
           return false;
-        
+        case K_SCROL:
+          if (record->event.pressed) {
+            set_scrolling = true;
+          } else {
+            set_scrolling = false;
+          }
+          return false;
+          
   }
   return true;
 }

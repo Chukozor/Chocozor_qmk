@@ -162,4 +162,5 @@ enum custom_keycodes {
     DPI_DEC,
     K_SNIPE,
     K_BLITZ,
+    K_SCROL,
 };
