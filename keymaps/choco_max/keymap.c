@@ -521,8 +521,8 @@ void pointing_device_init_user(void) {
 // ==============================================
 // SCROLLING WITH TRACKPAD
 // Modify these values to adjust the scrolling speed
-#define SCROLL_DIVISOR_H 14.0
-#define SCROLL_DIVISOR_V 14.0
+#define SCROLL_DIVISOR_H 18.0
+#define SCROLL_DIVISOR_V 18.0
 
 // Variables to store accumulated scroll values
 float scroll_accumulated_h = 0;
