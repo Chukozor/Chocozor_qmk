@@ -241,7 +241,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       MY_LSFT, XXXXXXX,   KC_F1,   KC_F2,   KC_F3,  KC_F10,                      XXXXXXX, KC_HOME, XXXXXXX,  KC_END, XXXXXXX, XXXXXXX,
   //|--------------------------------------------------------------|  |--------------------------------------------------------------|
-                        XXXXXXX, WEB_OFF, XXXXXXX,  MY_NAV, XXXXXXX,    KC_LALT, KC_LCTL, XXXXXXX, XXXXXXX, XXXXXXX
+                        XXXXXXX, WEB_OFF, XXXXXXX,  KC_LCTL, XXXXXXX,    KC_LALT, KC_LCTL, XXXXXXX, XXXXXXX, XXXXXXX
                      //`-------------------------------------------'   `-------------------------------------------'
   ),
     [_NAV_LEFT] = CHOCO_MAX(
