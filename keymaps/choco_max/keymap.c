@@ -228,9 +228,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       MY_LCTL, S(FR_A), S(KC_R), S(KC_S), S(KC_T), S(KC_D),                      S(KC_H), S(KC_N), S(KC_E), S(KC_I), S(KC_O), MY_RCTL,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      MY_LSFT, S(FR_Z), S(KC_X), S(KC_C), S(KC_V), S(KC_B),                      S(KC_K), S(FR_M), FR_COMM,  FR_DOT, FR_QUES, MY_LSFT,
+      MY_LSFT, S(FR_Q), S(KC_X), S(KC_C), S(KC_V), S(KC_B),                      S(KC_K), S(FR_M), FR_COMM,  FR_DOT, FR_QUES, MY_LSFT,
   //|--------------------------------------------------------------|   |-------------------------------------------------------------|
-                        XXXXXXX, WEB_OFF, KC_LGUI,  MY_NAV,  HT_SPC,    KC_LALT,CSTM_ENT, NAV_LFT, XXXXXXX, XXXXXXX
+                        S(FR_Z), WEB_OFF, KC_LGUI,  MY_NAV,  HT_SPC,    KC_LALT,CSTM_ENT, NAV_LFT, XXXXXXX, XXXXXXX
                      //`-------------------------------------------'   `-------------------------------------------'
   ),
     [_F_KEYS] = CHOCO_MAX(
