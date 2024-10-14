@@ -521,33 +521,62 @@ void pointing_device_init_user(void) {
 // ==============================================
 // SCROLLING WITH TRACKPAD
 // Modify these values to adjust the scrolling speed
-#define SCROLL_DIVISOR_H 44.0
-#define SCROLL_DIVISOR_V 22.0
+#define SCROLL_DIVISOR_H 44.0   // Horizontal scroll speed
+#define SCROLL_DIVISOR_V 22.0   // Vertical scroll speed
 
 // Variables to store accumulated scroll values
 float scroll_accumulated_h = 0;
 float scroll_accumulated_v = 0;
+// -------
+// VOLUME CONTROL WITH TRACKPAD
+// Define how sensitive the trackpad is for volume control
+#define VOLUME_DIVISOR 10.0  // Adjust for volume control sensitivity (higher = more movement required)
+#define VOLUME_THRESHOLD 1.0  // Threshold for triggering volume change
+
+// Variables to store accumulated volume movement
+float volume_accumulated_v = 0;
+// -------
+
 report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
-    
-    // Check if _REG_SPE is on
-    if (set_scrolling || IS_LAYER_ON(_F_KEYS)) {
-      // Calculate and accumulate scroll values based on mouse movement and divisors
-      scroll_accumulated_h += (float)mouse_report.x / SCROLL_DIVISOR_H;
-      scroll_accumulated_v += (float)mouse_report.y / SCROLL_DIVISOR_V;
+  // Check if _REG_SPE layer is active (for volume control)
+  if (IS_LAYER_ON(_REG_SPE)) {
+    // Accumulate vertical movement, scaled by VOLUME_DIVISOR for volume control
+    volume_accumulated_v += (float)mouse_report.y / VOLUME_DIVISOR;
 
-      // Assign integer parts of accumulated scroll values to the mouse report
-      mouse_report.h = (int8_t)scroll_accumulated_h;
-      mouse_report.v = -(int8_t)scroll_accumulated_v;
-
-      // Update accumulated scroll values by subtracting the integer parts
-      scroll_accumulated_h -= (int8_t)scroll_accumulated_h;
-      scroll_accumulated_v -= (int8_t)scroll_accumulated_v;
-
-      // Clear the X and Y values of the mouse report
-      mouse_report.x = 0;
-      mouse_report.y = 0;
+    // If accumulated vertical movement reaches the threshold, adjust the volume
+    if (volume_accumulated_v >= VOLUME_THRESHOLD) {
+        tap_code(KC_VOLD);  // Decrease volume
+        volume_accumulated_v = 0;  // Reset accumulator after triggering
+    } else if (volume_accumulated_v <= -VOLUME_THRESHOLD) {
+        tap_code(KC_VOLU);  // Increase volume
+        volume_accumulated_v = 0;  // Reset accumulator after triggering
     }
-    return mouse_report;
+
+    // Prevent any cursor movement while controlling volume
+    mouse_report.x = 0;
+    mouse_report.y = 0;
+
+  } else if (set_scrolling || IS_LAYER_ON(_F_KEYS)) {
+    // SCROLLING FUNCTIONALITY
+    // Accumulate scroll values based on mouse movement and divisors
+    scroll_accumulated_h += (float)mouse_report.x / SCROLL_DIVISOR_H;
+    scroll_accumulated_v += (float)mouse_report.y / SCROLL_DIVISOR_V;
+
+    // Assign integer parts of accumulated scroll values to the mouse report
+    mouse_report.h = (int8_t)scroll_accumulated_h;  // Horizontal scroll
+    mouse_report.v = -(int8_t)scroll_accumulated_v; // Vertical scroll (negated for natural scroll)
+
+    // Update accumulated scroll values by subtracting the integer parts
+    scroll_accumulated_h -= (int8_t)scroll_accumulated_h;
+    scroll_accumulated_v -= (int8_t)scroll_accumulated_v;
+
+    // Prevent cursor movement while scrolling
+    mouse_report.x = 0;
+    mouse_report.y = 0;
+  }
+
+  // Return the modified or unmodified mouse report
+  return mouse_report;
 }
 // ==============================================
 // ==============================================
