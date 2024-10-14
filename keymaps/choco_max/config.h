@@ -73,7 +73,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define SPLIT_POINTING_ENABLE
 #define POINTING_DEVICE_RIGHT
 // #define CIRQUE_PINNACLE_CURVED_OVERLAY
-#define DEBOUNCE 5
+#define DEBOUNCE 8
 
 
 // // ========== 35mm flat ==========
@@ -87,9 +87,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // ========== 40mm flat ==========
 #define CIRQUE_PINNACLE_DIAMETER_MM 40
 #define CIRQUE_PINNACLE_ATTENUATION EXTREG__TRACK_ADCCONFIG__ADC_ATTENUATE_4X
-#define POINTING_DEVICE_CIRQUE_PINNACLE_DPI 2150
+#define POINTING_DEVICE_CIRQUE_PINNACLE_DPI 3000
 #define POINTING_DEVICE_ROTATION_180
-#define AUTO_MOUSE_DEBOUNCE 20
+#define AUTO_MOUSE_DEBOUNCE 15
 // ---------------------------------------------------
 
 // #define CIRQUE_PINNACLE_POSITION_MODE CIRQUE_PINNACLE_RELATIVE_MODE
