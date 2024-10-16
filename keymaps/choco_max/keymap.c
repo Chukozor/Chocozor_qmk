@@ -593,6 +593,14 @@ report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
     mouse_report.x = 0;
     mouse_report.y = 0;
   }
+  
+  // else {
+  //   if (abs(mouse_report.x) < 2 && abs(mouse_report.y) < 2) {
+  //   // Ignore small movements
+  //   mouse_report.x = 0;
+  //   mouse_report.y = 0;
+  //   }
+  // }
 
   // Return the modified or unmodified mouse report
   return mouse_report;
