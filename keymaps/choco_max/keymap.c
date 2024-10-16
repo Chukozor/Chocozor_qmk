@@ -40,6 +40,8 @@ void toggle_game_mode(bool value){
 
 // ------------- COMBO ---------------
 enum combos {
+  ACTIVE_NUMPAD,
+  ACTIVE_NUMPAD2,
   COMBO_MULTIMEDIA,
   COMBO_OSM_SHIFT,
   COMBO_BOOT,
@@ -52,8 +54,6 @@ enum combos {
   TOGGLE_WEB,
   TOGGLE_RGB,
   COMBO_CLEAR_EEPROM,
-  COMBO_ESPACE,
-  COMBO_ESPACE2,
   COMBO_WEB
   // COMBO_E_AIGU
 };
@@ -63,6 +63,8 @@ enum combos {
 
 
 // const uint16_t PROGMEM temp_active_RGB[] = {MY_ENT, HT_SPC, COMBO_END};
+const uint16_t PROGMEM temp_active_numpad[] = {KC_N, HT_E, COMBO_END};
+const uint16_t PROGMEM temp_active_numpad2[] = {S(KC_N), S(KC_E), COMBO_END};
 const uint16_t PROGMEM temp_active_MULTIMEDIA[] = {KC_LGUI, MY_NAV, HT_SPC, COMBO_END};
 const uint16_t PROGMEM temp_active_SHIFT[] = {CSTM_ENT, HT_SPC, COMBO_END};
 const uint16_t PROGMEM temp_active_boot[] = {MY_NAV,HT_SPC,KC_LGUI,KC_LALT,CSTM_ENT, COMBO_END};
@@ -75,8 +77,6 @@ const uint16_t PROGMEM fast_switch_game_colemak_combo2[] = {KC_TAB, KC_LCTL, COM
 // const uint16_t PROGMEM combo_toggle_web[] = {KC_LGUI,MY_NAV, COMBO_END};
 const uint16_t PROGMEM toggle_RGB[] = {KC_LALT,CSTM_ENT,NAV_LFT, COMBO_END};
 const uint16_t PROGMEM combo_clear_eeprom[] = {RGB_TOG, ____MOD, _I_COUL, __I_LUM, __I_SAT, COMBO_END};
-const uint16_t PROGMEM combo_espace[] = {KC_N, HT_E, COMBO_END};
-const uint16_t PROGMEM combo_espace2[] = {S(KC_N), S(KC_E), COMBO_END};
 const uint16_t PROGMEM combo_web[] = {MY_LCTL, MY_RCTL, COMBO_END};
 // const uint16_t PROGMEM toggle_gaming_2[] = {FR_Q, KC_R, KC_C, KC_F, KC_T, COMBO_END};
 // const uint16_t PROGMEM temp_active_e_aigu[] = {HT_SPC, HT_E, COMBO_END};
@@ -84,6 +84,8 @@ const uint16_t PROGMEM combo_web[] = {MY_LCTL, MY_RCTL, COMBO_END};
 // const uint16_t PROGMEM bis_x_temp_active_RGB[] = {CSTM_ENT, HT_SPC, COMBO_END};
 // const uint16_t PROGMEM temp_active_RGB[] = {HT_ENT, HT_SPC, COMBO_END};
 combo_t key_combos[] = {
+    [ACTIVE_NUMPAD]=COMBO(temp_active_numpad, MO(_NAV)),
+    [ACTIVE_NUMPAD2]=COMBO(temp_active_numpad2, MO(_NAV)),
     [COMBO_MULTIMEDIA]=COMBO(temp_active_MULTIMEDIA, MO(_MULTIMEDIA)),
     // [TOGGLE_GAMING]=COMBO(toggle_gaming, TG(_AUX_GAME)),
     [TOGGLE_GAME]=COMBO(toggle_game, TG_GAME),
@@ -96,8 +98,6 @@ combo_t key_combos[] = {
     // [TOGGLE_WEB]=COMBO(combo_toggle_web, TG(_WEB_BROWSER)),
     [TOGGLE_RGB]=COMBO(toggle_RGB, TG(_RGB)),
     [COMBO_CLEAR_EEPROM]=COMBO(combo_clear_eeprom, QK_CLEAR_EEPROM),
-    [COMBO_ESPACE]=COMBO(combo_espace, KC_SPC),
-    [COMBO_ESPACE2]=COMBO(combo_espace2, KC_SPC),
     [COMBO_WEB]=COMBO(combo_web, TG(_WEB_BROWSER)),
     // [COMBO_OSL_RGB]=COMBO(temp_active_RGB, OSL(_RGB)),
     // [TOGGLE_GAMING_2]=COMBO(toggle_gaming_2, TG(_GAMING)),
@@ -115,7 +115,9 @@ bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode
         //   if (layer_state_is(_LAYER_A)) {
         //     return false;
         //   }
-        case COMBO_ESPACE2 - FAST_SWITCH_GAME_COLEMAK_COMBO:
+        case ACTIVE_NUMPAD:
+        case ACTIVE_NUMPAD2:
+        case FAST_SWITCH_GAME_COLEMAK_COMBO:
           if (layer_state_is(_GAME)) {
             return false;
           }
@@ -520,6 +522,8 @@ void pointing_device_init_user(void) {
 
 // ==============================================
 // SCROLLING WITH TRACKPAD
+
+// ------- For 40mm TRACKPAD --------------------
 // Modify these values to adjust the scrolling speed
 #define SCROLL_DIVISOR_H 30.0   // Horizontal scroll speed
 #define SCROLL_DIVISOR_V 15.0   // Vertical scroll speed
@@ -532,6 +536,21 @@ float scroll_accumulated_v = 0;
 // Define how sensitive the trackpad is for volume control
 #define VOLUME_DIVISOR 15.0  // Adjust for volume control sensitivity (higher = more movement required)
 #define VOLUME_THRESHOLD 1.0  // Threshold for triggering volume change
+
+// // ------- For 35mm TRACKPAD --------------------
+// // Modify these values to adjust the scrolling speed
+// #define SCROLL_DIVISOR_H 30.0   // Horizontal scroll speed
+// #define SCROLL_DIVISOR_V 15.0   // Vertical scroll speed
+
+// // Variables to store accumulated scroll values
+// float scroll_accumulated_h = 0;
+// float scroll_accumulated_v = 0;
+// // -------
+// // VOLUME CONTROL WITH TRACKPAD
+// // Define how sensitive the trackpad is for volume control
+// #define VOLUME_DIVISOR 15.0  // Adjust for volume control sensitivity (higher = more movement required)
+// #define VOLUME_THRESHOLD 1.0  // Threshold for triggering volume change
+// -------------------------------------------------
 
 // Variables to store accumulated volume movement
 float volume_accumulated_v = 0;
