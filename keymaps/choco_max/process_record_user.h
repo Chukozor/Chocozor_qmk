@@ -2,8 +2,9 @@
 //           SCROLLING WITH TRACKPAD
 // ------------ For 40mm TRACKPAD ---------------
 // Modify these values to adjust the scrolling speed
-#define SCROLL_DIVISOR_H_BASE 40.0   // Horizontal scroll speed
-#define SCROLL_DIVISOR_V_BASE 20.0   // Vertical scroll speed
+float aux_dpi = 0;
+#define SCROLL_DIVISOR_H_BASE 26.0   // Horizontal scroll speed
+#define SCROLL_DIVISOR_V_BASE 13.0   // Vertical scroll speed
 
 float scroll_divisor_h = SCROLL_DIVISOR_H_BASE;
 float scroll_divisor_v = SCROLL_DIVISOR_V_BASE;
@@ -657,6 +658,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
               wait_ms(5);
               SEND_STRING(SS_UP(X_LALT));
             } else if (set_scrolling || IS_LAYER_ON(_F_KEYS)) {
+              aux_dpi = pointing_device_get_cpi();
+              pointing_device_set_cpi(200);
               scroll_divisor_h =  SCROLL_DIVISOR_H_BASE * 2.0;
               scroll_divisor_v =  SCROLL_DIVISOR_V_BASE * 2.0;
             } else {
@@ -664,6 +667,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
           } else {
             if (set_scrolling || IS_LAYER_ON(_F_KEYS)) {
+              pointing_device_set_cpi(aux_dpi);
               scroll_divisor_h = SCROLL_DIVISOR_H_BASE;
               scroll_divisor_v = SCROLL_DIVISOR_V_BASE;
             } else {
@@ -679,9 +683,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case K_BLITZ: /* Decrease trackpad DPI*/
           if (set_scrolling || IS_LAYER_ON(_F_KEYS)) {
             if (record->event.pressed) {
+              aux_dpi = pointing_device_get_cpi();
+              pointing_device_set_cpi(1000);
               scroll_divisor_h = SCROLL_DIVISOR_H_BASE / 2.0;
               scroll_divisor_v = SCROLL_DIVISOR_V_BASE / 2.0;
             } else {
+              pointing_device_set_cpi(aux_dpi);
               scroll_divisor_h = SCROLL_DIVISOR_H_BASE;
               scroll_divisor_v = SCROLL_DIVISOR_V_BASE;
             }
