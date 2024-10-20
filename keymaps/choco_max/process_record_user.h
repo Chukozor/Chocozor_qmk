@@ -2,8 +2,8 @@
 //           SCROLLING WITH TRACKPAD
 // ------------ For 40mm TRACKPAD ---------------
 // Modify these values to adjust the scrolling speed
-#define SCROLL_DIVISOR_H_BASE 35.0   // Horizontal scroll speed
-#define SCROLL_DIVISOR_V_BASE 17.0   // Vertical scroll speed
+#define SCROLL_DIVISOR_H_BASE 40.0   // Horizontal scroll speed
+#define SCROLL_DIVISOR_V_BASE 20.0   // Vertical scroll speed
 
 float scroll_divisor_h = SCROLL_DIVISOR_H_BASE;
 float scroll_divisor_v = SCROLL_DIVISOR_V_BASE;
@@ -14,7 +14,7 @@ float scroll_accumulated_v = 0;
 // -------
 // VOLUME CONTROL WITH TRACKPAD
 // Define how sensitive the trackpad is for volume control
-#define VOLUME_DIVISOR 17  // Adjust for volume control sensitivity (higher = more movement required)
+#define VOLUME_DIVISOR 18  // Adjust for volume control sensitivity (higher = more movement required)
 #define VOLUME_THRESHOLD 1  // Threshold for triggering volume change
 
 // ------------ For 35mm TRACKPAD ---------------
