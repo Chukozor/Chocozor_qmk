@@ -799,6 +799,8 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
         case ACTIVE_NUMPAD:
         case ACTIVE_NUMPAD2:
           return 15;
+        case COMBO_PRINT_SCREEN:
+          return 25;
         default:
           return COMBO_TERM;
     }
