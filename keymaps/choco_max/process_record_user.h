@@ -1,3 +1,42 @@
+// ==============================================
+//           SCROLLING WITH TRACKPAD
+// ------------ For 40mm TRACKPAD ---------------
+// Modify these values to adjust the scrolling speed
+#define SCROLL_DIVISOR_H_BASE 35.0   // Horizontal scroll speed
+#define SCROLL_DIVISOR_V_BASE 17.0   // Vertical scroll speed
+
+float scroll_divisor_h = SCROLL_DIVISOR_H_BASE;
+float scroll_divisor_v = SCROLL_DIVISOR_V_BASE;
+
+// Variables to store accumulated scroll values
+float scroll_accumulated_h = 0;
+float scroll_accumulated_v = 0;
+// -------
+// VOLUME CONTROL WITH TRACKPAD
+// Define how sensitive the trackpad is for volume control
+#define VOLUME_DIVISOR 17  // Adjust for volume control sensitivity (higher = more movement required)
+#define VOLUME_THRESHOLD 1  // Threshold for triggering volume change
+
+// ------------ For 35mm TRACKPAD ---------------
+// // Modify these values to adjust the scrolling speed
+// #define SCROLL_DIVISOR_H 30.0   // Horizontal scroll speed
+// #define SCROLL_DIVISOR_V 15.0   // Vertical scroll speed
+
+// // Variables to store accumulated scroll values
+// float scroll_accumulated_h = 0;
+// float scroll_accumulated_v = 0;
+// // -------
+// // VOLUME CONTROL WITH TRACKPAD
+// // Define how sensitive the trackpad is for volume control
+// #define VOLUME_DIVISOR 15.0  // Adjust for volume control sensitivity (higher = more movement required)
+// #define VOLUME_THRESHOLD 1.0  // Threshold for triggering volume change
+// -------------------------------------------------
+
+// Variables to store accumulated volume movement
+float volume_accumulated_v = 0;
+// -------------------------------------------------
+// -------------------------------------------------
+
 // #include "timer.h"
 // static uint8_t nav_interrupted = 0;
 // static bool spc_is_held = false;
@@ -617,20 +656,36 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
               tap_code(KC_TAB);
               wait_ms(5);
               SEND_STRING(SS_UP(X_LALT));
+            } else if (set_scrolling || IS_LAYER_ON(_F_KEYS)) {
+              scroll_divisor_h =  SCROLL_DIVISOR_H_BASE * 2.0;
+              scroll_divisor_v =  SCROLL_DIVISOR_V_BASE * 2.0;
             } else {
               pointing_device_set_cpi(pointing_device_get_cpi()-300);
             }
           } else {
-            if (alt_tab_menu == true) {
-              alt_tab_menu = false;
+            if (set_scrolling || IS_LAYER_ON(_F_KEYS)) {
+              scroll_divisor_h = SCROLL_DIVISOR_H_BASE;
+              scroll_divisor_v = SCROLL_DIVISOR_V_BASE;
             } else {
-              pointing_device_set_cpi(pointing_device_get_cpi()+300);
+              if (alt_tab_menu == true) {
+                alt_tab_menu = false;
+              } else {
+                pointing_device_set_cpi(pointing_device_get_cpi()+300);
+              }
             }
           }
           return false;
 
         case K_BLITZ: /* Decrease trackpad DPI*/
-          if (record->event.pressed) {
+          if (set_scrolling || IS_LAYER_ON(_F_KEYS)) {
+            if (record->event.pressed) {
+              scroll_divisor_h = SCROLL_DIVISOR_H_BASE / 2.0;
+              scroll_divisor_v = SCROLL_DIVISOR_V_BASE / 2.0;
+            } else {
+              scroll_divisor_h = SCROLL_DIVISOR_H_BASE;
+              scroll_divisor_v = SCROLL_DIVISOR_V_BASE;
+            }
+          } else if (record->event.pressed) {
             pointing_device_set_cpi(pointing_device_get_cpi()+300);
           } else {
             pointing_device_set_cpi(pointing_device_get_cpi()-300);

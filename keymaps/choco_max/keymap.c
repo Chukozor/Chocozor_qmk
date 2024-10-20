@@ -292,9 +292,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
     [_MOUSE_LAYER] = CHOCO_MAX(
   //,-----------------------------------------------------.                       ,-----------------------------------------------------.
-       MY_ESC, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+       MY_ESC, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                         KC_BTN3, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                       |--------+--------+--------+--------+--------+--------|
-      KC_LCTL, K_BLITZ, KC_BTN1, KC_BTN3, KC_BTN2, XXXXXXX,                         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      KC_LCTL, K_BLITZ, KC_BTN1, KC_BTN3, KC_BTN2, XXXXXXX,                         XXXXXXX, KC_LCTL, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                       |--------+--------+--------+--------+--------+--------|
       KC_LSFT, K_SNIPE, KC_BTN1, KC_BTN3, KC_BTN2, XXXXXXX,                         XXXXXXX, XXXXXXX, KC_BTN2, XXXXXXX, XXXXXXX, XXXXXXX,
   //|-----------------------------------------------------|    |----------------------------------------------------------|
@@ -520,42 +520,6 @@ void pointing_device_init_user(void) {
 
 // #include "custom_files/trackpad/scrolling.h"
 
-// ==============================================
-// SCROLLING WITH TRACKPAD
-
-// ------- For 40mm TRACKPAD --------------------
-// Modify these values to adjust the scrolling speed
-#define SCROLL_DIVISOR_H 35.0   // Horizontal scroll speed
-#define SCROLL_DIVISOR_V 17.0   // Vertical scroll speed
-
-// Variables to store accumulated scroll values
-float scroll_accumulated_h = 0;
-float scroll_accumulated_v = 0;
-// -------
-// VOLUME CONTROL WITH TRACKPAD
-// Define how sensitive the trackpad is for volume control
-#define VOLUME_DIVISOR 17.0  // Adjust for volume control sensitivity (higher = more movement required)
-#define VOLUME_THRESHOLD 1.0  // Threshold for triggering volume change
-
-// // ------- For 35mm TRACKPAD --------------------
-// // Modify these values to adjust the scrolling speed
-// #define SCROLL_DIVISOR_H 30.0   // Horizontal scroll speed
-// #define SCROLL_DIVISOR_V 15.0   // Vertical scroll speed
-
-// // Variables to store accumulated scroll values
-// float scroll_accumulated_h = 0;
-// float scroll_accumulated_v = 0;
-// // -------
-// // VOLUME CONTROL WITH TRACKPAD
-// // Define how sensitive the trackpad is for volume control
-// #define VOLUME_DIVISOR 15.0  // Adjust for volume control sensitivity (higher = more movement required)
-// #define VOLUME_THRESHOLD 1.0  // Threshold for triggering volume change
-// -------------------------------------------------
-
-// Variables to store accumulated volume movement
-float volume_accumulated_v = 0;
-// -------
-
 report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
   // Check if _REG_SPE layer is active (for volume control)
   if (IS_LAYER_ON(_REG_SPE)) {
@@ -578,8 +542,8 @@ report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
   } else if (set_scrolling || IS_LAYER_ON(_F_KEYS)) {
     // SCROLLING FUNCTIONALITY
     // Accumulate scroll values based on mouse movement and divisors
-    scroll_accumulated_h += (float)mouse_report.x / SCROLL_DIVISOR_H;
-    scroll_accumulated_v += (float)mouse_report.y / SCROLL_DIVISOR_V;
+    scroll_accumulated_h += (float)mouse_report.x / scroll_divisor_h;
+    scroll_accumulated_v += (float)mouse_report.y / scroll_divisor_v;
 
     // Assign integer parts of accumulated scroll values to the mouse report
     mouse_report.h = (int8_t)scroll_accumulated_h;  // Horizontal scroll
