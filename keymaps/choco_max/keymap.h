@@ -145,6 +145,7 @@ enum custom_keycodes {
     KY_P2,
     KY_P3,
     KY_P5,
+    KY_P8,
     KY_WEBNAV,
     KY_LEFT,
     // KY_DOWN,

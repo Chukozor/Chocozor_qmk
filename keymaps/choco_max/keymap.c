@@ -262,7 +262,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
     [_NAV] = CHOCO_MAX(
   //,--------------------------------------------------------.                    ,-----------------------------------------------------.
-       MY_ESC, IMGLASS_CP,   KC_P7,   KC_P8,   KC_P9, KC_BSPC,                      XXXXXXX, KC_PGUP,   KC_UP, KC_PGDN, XXXXXXX, XXXXXXX,
+       MY_ESC, IMGLASS_CP,   KC_P7,   KY_P8,   KC_P9, KC_BSPC,                      XXXXXXX, KC_PGUP,   KC_UP, KC_PGDN, XXXXXXX, XXXXXXX,
   //|--------+-----------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       MY_LCTL,    MOWEBBR,   KC_P4,   KY_P5,   KC_P6, KC_PDOT,                      KC_BSPC, KC_LEFT, KC_DOWN,KC_RIGHT,  KC_DEL, MY_RCTL,
   //|--------+-  --------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|

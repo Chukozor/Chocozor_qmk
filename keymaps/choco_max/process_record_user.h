@@ -3,8 +3,8 @@
 // ------------ For 40mm TRACKPAD ---------------
 // Modify these values to adjust the scrolling speed
 float aux_dpi = 0;
-#define SCROLL_DIVISOR_H_BASE 26.0   // Horizontal scroll speed
-#define SCROLL_DIVISOR_V_BASE 13.0   // Vertical scroll speed
+#define SCROLL_DIVISOR_H_BASE 40.0   // Horizontal scroll speed
+#define SCROLL_DIVISOR_V_BASE 20.0   // Vertical scroll speed
 
 float scroll_divisor_h = SCROLL_DIVISOR_H_BASE;
 float scroll_divisor_v = SCROLL_DIVISOR_V_BASE;
@@ -458,6 +458,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             tap_code(KC_UP);
           } else {
             tap_code(KC_P5);
+          }
+        }
+        return false;
+
+      case KY_P8:
+        if (record->event.pressed) {
+          if (alt_tab_menu) {
+            tap_code(KC_DEL);
+          } else {
+            tap_code(KC_P8);
           }
         }
         return false;
