@@ -301,7 +301,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                       |--------+--------+--------+--------+--------+--------|
       KC_LSFT, K_SNIPE, KC_BTN1, KC_BTN3, KC_BTN2, XXXXXXX,                         XXXXXXX, XXXXXXX, KC_BTN2, XXXXXXX, XXXXXXX, XXXXXXX,
   //|-----------------------------------------------------|    |----------------------------------------------------------|
-                        XXXXXXX, WEB_OFF, XXXXXXX, KC_LCTL, MO(_ACCENTS),     KC_BTN1, XXXXXXX, XXXXXXX, XXXXXXX, KC_BTN2
+                        XXXXXXX, WEB_OFF, XXXXXXX, KC_LCTL, MO(_ACCENTS),     KC_BTN1, KC_BTN3, XXXXXXX, XXXXXXX, KC_BTN2
                      //`------------------------------------------------'    `-------------------------------------------'
   ),
    // _ACCENTS_COLEMAK_FR
