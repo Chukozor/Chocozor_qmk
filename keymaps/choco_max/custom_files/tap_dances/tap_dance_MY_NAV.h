@@ -1,6 +1,8 @@
 // ================= NAV_F_KEYS TAPDANCE ================
 bool nav_already_activated = false;
 bool trace_op_nav = false;
+bool combo_nav_activated = false;
+bool nav_verrouillee= false;
 // -------------------------------------------------------
 static tap nav_tap_state = {
   .is_press_action = true,
@@ -17,11 +19,12 @@ void nav_finished (tap_dance_state_t *state, void *user_data) {
       set_oneshot_layer(_OP_NAV, ONESHOT_START);
       break;
     case DOUBLE_TAP: 
-      if (IS_LAYER_ON(_NAV)) {
+      if (IS_LAYER_ON(_NAV) && !combo_nav_activated) {
         layer_off(_NAV);
       } else { 
         layer_move(_COLEMAK_FR);
         layer_on(_NAV);
+        nav_verrouillee = true;
       }
       break;
     case SINGLE_HOLD:
@@ -46,7 +49,7 @@ void nav_reset (tap_dance_state_t *state, void *user_data) {
       clear_oneshot_layer_state(ONESHOT_PRESSED);
       break;
     case SINGLE_HOLD:
-      if (!nav_already_activated) {
+      if (!nav_already_activated && !combo_nav_activated) {
         layer_off(_NAV);
       }
       break;

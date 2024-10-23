@@ -164,4 +164,5 @@ enum custom_keycodes {
     K_SNIPE,
     K_BLITZ,
     K_SCROL,
+    MO_NUMPAD,
 };
