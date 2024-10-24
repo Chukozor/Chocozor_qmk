@@ -179,7 +179,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------+--------|
       KC_LSFT,    FR_Q,    KC_X,    KC_C,    KC_V,    KC_B,                           KC_K,    FR_M, FR_COMM,  FR_DOT, FR_QUES, KC_RSFT,
   //|--------------------------------------------------------------|     |-------------------------------------------------------------|
-                           FR_Z, WEB_OFF, KC_LGUI,  MY_NAV,  HT_SPC,      MOFKEYS, CSTM_ENT,KC_LALT,  KC_ENT, MO_NAV
+                           FR_Z, XXXXXXX, KC_LGUI,  MY_NAV,  HT_SPC,      MOFKEYS, CSTM_ENT,KC_LALT, XXXXXXX, MO_NAV
                      //`-------------------------------------------'     `-------------------------------------------'
   ),
     // OTHER_GAMING for gaming
@@ -191,7 +191,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_TAB,     FR_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_K,    FR_M, FR_COMM,  FR_DOT, FR_QUES, KC_LSFT,
   //|--------------------------------------------------------------|   |-------------------------------------------------------------|
-                        XXXXXXX, WEB_OFF, MO_OX_G,    KC_I,  KC_SPC,    KC_LALT,  KC_ENT, XXXXXXX, XXXXXXX, XXXXXXX
+                        XXXXXXX, XXXXXXX, MO_OX_G,    KC_I,  KC_SPC,    KC_LALT,  KC_ENT, XXXXXXX, XXXXXXX, XXXXXXX
                      //`-------------------------------------------'   `-------------------------------------------'
   ),
     // _AUX_GAME for gaming
@@ -203,7 +203,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LSFT, XXXXXXX,   KC_F1,   KC_F2,   KC_F3, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------------------------------------------------------------|   |-------------------------------------------------------------|
-                        XXXXXXX, WEB_OFF, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
+                        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
                      //`-------------------------------------------'   `-------------------------------------------'
   ),
   //   // QWERTY
@@ -226,7 +226,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------------------------------------------------------------|   |-------------------------------------------------------------|
-                        XXXXXXX, WEB_OFF, XXXXXXX,  MY_NAV, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
+                        XXXXXXX, XXXXXXX, XXXXXXX,  MY_NAV, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
                      //`-------------------------------------------'   `-------------------------------------------'
   ),
    // _CAPS_LOCK
@@ -238,7 +238,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LSFT, S(FR_Q), S(KC_X), S(KC_C), S(KC_V), S(KC_B),                      S(KC_K), S(FR_M), FR_COMM,  FR_DOT, FR_QUES, KC_RSFT,
   //|--------------------------------------------------------------|   |-------------------------------------------------------------|
-                        S(FR_Z), WEB_OFF, KC_LGUI,  MY_NAV,  HT_SPC,    KC_LALT,CSTM_ENT, NAV_LFT, XXXXXXX, XXXXXXX
+                        S(FR_Z), XXXXXXX, KC_LGUI,  MY_NAV,  HT_SPC,    KC_LALT,CSTM_ENT, NAV_LFT, XXXXXXX, XXXXXXX
                      //`-------------------------------------------'   `-------------------------------------------'
   ),
     [_F_KEYS] = CHOCO_MAX(
@@ -249,7 +249,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LSFT, XXXXXXX,   KC_F1,   KC_F2,   KC_F3,  KC_F10,                      XXXXXXX, KC_HOME, XXXXXXX,  KC_END, XXXXXXX, XXXXXXX,
   //|--------------------------------------------------------------|  |--------------------------------------------------------------|
-                        XXXXXXX, WEB_OFF, XXXXXXX,  KC_LCTL, XXXXXXX,    KC_LALT, KC_LCTL, XXXXXXX, XXXXXXX, XXXXXXX
+                        XXXXXXX, XXXXXXX, XXXXXXX,  KC_LCTL, XXXXXXX,    KC_LALT, KC_LCTL, XXXXXXX, XXXXXXX, XXXXXXX
                      //`-------------------------------------------'   `-------------------------------------------'
   ),
     [_NAV_LEFT] = CHOCO_MAX(
@@ -260,7 +260,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+---------+---------+---------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX,  XXXXXXX,  XXXXXXX,  C(KC_D), XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|-----------------------------------------------------------------|  |--------------------------------------------------------------|
-                          XXXXXXX,  WEB_OFF, XXXXXXX, XXXXXXX,  KY_SPC,    XXXXXXX, XXXXXXX, NAV_LFT, XXXXXXX, XXXXXXX
+                          XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,  KY_SPC,    XXXXXXX, XXXXXXX, NAV_LFT, XXXXXXX, XXXXXXX
                       //`---------------------------------------------'  `--------------------------------------------'
   ),
     [_NAV] = CHOCO_MAX(
@@ -271,7 +271,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+-  --------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LSFT,   MY_ALT_T,   KY_P1,   KY_P2,   KY_P3,  KC_ENT,                      XXXXXXX, KC_HOME, XXXXXXX,  KC_END, XXXXXXX, XXXXXXX,
   //|-----------------------------------------------------------------|   |-------------------------------------------------------------|
-                             KC_P0, WEB_OFF, _______, _______, _______,    KC_LALT, KC_LCTL,  MY_NAV, XXXXXXX, XXXXXXX
+                             KC_P0, XXXXXXX, _______, _______, _______,    KC_LALT, KC_LCTL,  MY_NAV, XXXXXXX, XXXXXXX
                         //`-------------------------------------------'   `-------------------------------------------'
   ),
     [_WEB_BROWSER] = CHOCO_MAX(
@@ -282,7 +282,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+---------+--------+--------+---------+----------|                    |--------+--------+--------+--------+----------+--------|
       KC_LSFT,  XXXXXXX, XXXXXXX, C(KC_D),  XXXXXXX, RCS(KC_N),                    RCS(KC_N), XXXXXXX, C(KC_D), XXXXXXX,   XXXXXXX, XXXXXXX,
   //|------------------------------------------------------------------|   |---------------------------------------------------------------|
-                         XXXXXXX,  WEB_OFF, KC_LGUI,    MY_NAV,  HT_SPC,    KC_LALT,CSTM_ENT, NAV_LFT, XXXXXXX, XXXXXXX
+                         XXXXXXX,  XXXXXXX, KC_LGUI,    MY_NAV,  HT_SPC,    KC_LALT,CSTM_ENT, NAV_LFT, XXXXXXX, XXXXXXX
                       //`----------------------------------------------'   `-------------------------------------------'
   ),
     [_OP_NAV] = CHOCO_MAX(
@@ -293,7 +293,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+-  --------+--------+----------+----------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LSFT,    XXXXXXX, KC_PSLS,   MY_PIPE,   KC_PAST, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|---------------------------------------------------------------|               |-------------------------------------------------------|
-                    XXXXXXX, WEB_OFF, XXXXXXX, MY_NAV_FROM_OP,HT_SPC,                XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
+                    XXXXXXX, XXXXXXX, XXXXXXX, MY_NAV_FROM_OP,HT_SPC,                XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
                   //`-----------------------------------------------'               `-------------------------------------------'
   ),
     [_MOUSE_LAYER] = CHOCO_MAX(
@@ -304,7 +304,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                       |--------+--------+--------+--------+--------+--------|
       KC_LSFT, K_SNIPE, KC_BTN1, KC_BTN3, KC_BTN2, XXXXXXX,                         XXXXXXX, XXXXXXX, KC_BTN2, XXXXXXX, XXXXXXX, XXXXXXX,
   //|-----------------------------------------------------|    |----------------------------------------------------------|
-                        XXXXXXX, WEB_OFF, XXXXXXX, KC_LCTL, MO(_ACCENTS),     KC_BTN1, KC_BTN3, XXXXXXX, XXXXXXX, KC_BTN2
+                        XXXXXXX, XXXXXXX, ZOOM_TR, KC_LCTL, MO(_ACCENTS),     KC_BTN1, KC_BTN3, XXXXXXX, XXXXXXX, KC_BTN2
                      //`------------------------------------------------'    `-------------------------------------------'
   ),
    // _ACCENTS_COLEMAK_FR
@@ -316,7 +316,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+---------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LSFT,MY_COMENT, XXXXXXX, C_CEDIL,MY_PASTE,MY_PRT_S,                      XXXXXXX, XXXXXXX, FR_COLN, FR_SCLN, FR_EXLM, KC_RSFT,
   //|---------------------------------------------------------------|   |-------------------------------------------------------------|
-                         XXXXXXX, WEB_OFF, KC_LGUI,  MY_NAV,  HT_SPC,    KC_LALT,CSTM_ENT, XXXXXXX, XXXXXXX, XXXXXXX
+                         XXXXXXX, XXXXXXX, KC_LGUI,  MY_NAV,  HT_SPC,    KC_LALT,CSTM_ENT, XXXXXXX, XXXXXXX, XXXXXXX
                       //`-------------------------------------------'   `-------------------------------------------'
   ),
    // _REG_SPE_FR
@@ -328,7 +328,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+----------+--------+----------+--------|
       _______, XXXXXXX, KC_PSLS, MY_PIPE, KC_PAST, MY_EURO,                   ALGR(KC_9), FR_LPRN,ALGR(KC_8), FR_RPRN,   XXXXXXX, _______,
   //|--------------------------------------------------------------|  |------------------------------------------------------------------|
-                        XXXXXXX, WEB_OFF, _______, _______, _______,   _______, CSTM_ENT, _______, XXXXXXX, XXXXXXX
+                        XXXXXXX, XXXXXXX, _______, _______, _______,   _______, CSTM_ENT, _______, XXXXXXX, XXXXXXX
                                       //`--------------------------'  `--------------------------'
   ),
     [_MULTIMEDIA] = CHOCO_MAX(
