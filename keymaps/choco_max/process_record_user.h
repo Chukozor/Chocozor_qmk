@@ -722,6 +722,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         // press(MY_LCTL AND MY_LSFT)
         return false;
 
+    case TG_SCROL:
+      if (record->event.pressed) {
+          // logic when pressed
+          set_scrolling = !set_scrolling;
+        }
+        return false;
+
     case MY_ESC:
       if (record->tap.count) { // Tap
         if (record->event.pressed) {

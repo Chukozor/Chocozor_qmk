@@ -167,4 +167,5 @@ enum custom_keycodes {
     MO_NUMPAD,
     DBL_SHIFT,
     ZOOM_TR,
+    TG_SCROL,
 };
