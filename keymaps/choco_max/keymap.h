@@ -165,4 +165,5 @@ enum custom_keycodes {
     K_BLITZ,
     K_SCROL,
     MO_NUMPAD,
+    DBL_SHIFT,
 };

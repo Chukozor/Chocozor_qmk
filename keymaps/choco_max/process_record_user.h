@@ -691,6 +691,20 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       return false;
     
+    case DBL_SHIFT:
+      if (record->event.pressed) {
+        if (layer_state_is(_CAPS_LOCK)) {
+          //if already set, then switch it off
+          layer_off(_CAPS_LOCK);
+          caps_lock_activated = false;
+        } else if (game_mode == false) {
+          //if not already set, then switch the layer on
+          layer_on(_CAPS_LOCK);
+          caps_lock_activated = true;
+        }
+      }
+      return false;
+
     case MY_ESC:
       if (record->tap.count) { // Tap
         if (record->event.pressed) {

@@ -44,6 +44,7 @@ enum combos {
   ACTIVE_NUMPAD2,
   COMBO_MULTIMEDIA,
   COMBO_OSM_SHIFT,
+  COMBO_CAPSLOCK,
   COMBO_BOOT,
   COMBO_BOOT2,
   // TOGGLE_GAMING,
@@ -68,12 +69,13 @@ const uint16_t PROGMEM temp_active_numpad[] = {KC_N, HT_E, COMBO_END};
 const uint16_t PROGMEM temp_active_numpad2[] = {S(KC_N), S(KC_E), COMBO_END};
 const uint16_t PROGMEM temp_active_MULTIMEDIA[] = {KC_LGUI, MY_NAV, HT_SPC, COMBO_END};
 const uint16_t PROGMEM temp_active_SHIFT[] = {CSTM_ENT, HT_SPC, COMBO_END};
+const uint16_t PROGMEM combo_capslock[] = {KC_LSFT, KC_RSFT, COMBO_END};
 const uint16_t PROGMEM temp_active_boot[] = {MY_NAV,HT_SPC,KC_LGUI,KC_LALT,CSTM_ENT, COMBO_END};
 const uint16_t PROGMEM temp_active_boot2[] = {KC_LGUI,MY_NAV,HT_SPC,MOFKEYS, CSTM_ENT,KC_LALT, COMBO_END};
 // const uint16_t PROGMEM toggle_gaming[] = {FR_Q,FR_W,KC_F,KC_P,KC_G, COMBO_END};
 const uint16_t PROGMEM toggle_game[] = {FR_A,KC_R,KC_S,KC_T,KC_D, COMBO_END};
 const uint16_t PROGMEM toggle_game2[] = {KC_LSFT,FR_A,FR_W,KC_D,KC_T, COMBO_END};
-const uint16_t PROGMEM fast_switch_game_colemak_combo[] = {MY_LCTL,MY_LSFT, COMBO_END};
+const uint16_t PROGMEM fast_switch_game_colemak_combo[] = {MY_LCTL,KC_LSFT, COMBO_END};
 const uint16_t PROGMEM fast_switch_game_colemak_combo2[] = {KC_TAB, KC_LCTL, COMBO_END};
 // const uint16_t PROGMEM combo_toggle_web[] = {KC_LGUI,MY_NAV, COMBO_END};
 const uint16_t PROGMEM toggle_RGB[] = {KC_LALT,CSTM_ENT,NAV_LFT, COMBO_END};
@@ -93,6 +95,7 @@ combo_t key_combos[] = {
     [TOGGLE_GAME]=COMBO(toggle_game, TG_GAME),
     [TOGGLE_GAME2]=COMBO(toggle_game2, TG_GAME),
     [COMBO_OSM_SHIFT]=COMBO(temp_active_SHIFT, OSM(MOD_LSFT)),
+    [COMBO_CAPSLOCK]=COMBO(combo_capslock, DBL_SHIFT),
     [COMBO_BOOT]=COMBO(temp_active_boot, QK_BOOT),
     [COMBO_BOOT2]=COMBO(temp_active_boot2, QK_BOOT),
     [FAST_SWITCH_GAME_COLEMAK_COMBO]=COMBO(fast_switch_game_colemak_combo, FAST_SWITCH_GAME_COLEMAK),
@@ -174,7 +177,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------+--------|
       MY_LCTL,    FR_A,    KC_R,    KC_S,    KC_T,    KC_D,                           KC_H,    KC_N,    HT_E,    KC_I,    KC_O, MY_RCTL,
   //|--------+--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------+--------|
-      MY_LSFT,    FR_Q,    KC_X,    KC_C,    KC_V,    KC_B,                           KC_K,    FR_M, FR_COMM,  FR_DOT, FR_QUES, MY_LSFT,
+      KC_LSFT,    FR_Q,    KC_X,    KC_C,    KC_V,    KC_B,                           KC_K,    FR_M, FR_COMM,  FR_DOT, FR_QUES, KC_RSFT,
   //|--------------------------------------------------------------|     |-------------------------------------------------------------|
                            FR_Z, WEB_OFF, KC_LGUI,  MY_NAV,  HT_SPC,      MOFKEYS, CSTM_ENT,KC_LALT,  KC_ENT, MO_NAV
                      //`-------------------------------------------'     `-------------------------------------------'
@@ -233,7 +236,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       MY_LCTL, S(FR_A), S(KC_R), S(KC_S), S(KC_T), S(KC_D),                      S(KC_H), S(KC_N), S(KC_E), S(KC_I), S(KC_O), MY_RCTL,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      MY_LSFT, S(FR_Q), S(KC_X), S(KC_C), S(KC_V), S(KC_B),                      S(KC_K), S(FR_M), FR_COMM,  FR_DOT, FR_QUES, MY_LSFT,
+      KC_LSFT, S(FR_Q), S(KC_X), S(KC_C), S(KC_V), S(KC_B),                      S(KC_K), S(FR_M), FR_COMM,  FR_DOT, FR_QUES, KC_RSFT,
   //|--------------------------------------------------------------|   |-------------------------------------------------------------|
                         S(FR_Z), WEB_OFF, KC_LGUI,  MY_NAV,  HT_SPC,    KC_LALT,CSTM_ENT, NAV_LFT, XXXXXXX, XXXXXXX
                      //`-------------------------------------------'   `-------------------------------------------'
@@ -244,7 +247,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       MY_LCTL, XXXXXXX,   KC_F4,   KC_F5,   KC_F6,  KC_F11,                      KC_BSPC, KC_LEFT, KC_DOWN,KC_RIGHT,  KC_DEL, MY_RCTL,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      MY_LSFT, XXXXXXX,   KC_F1,   KC_F2,   KC_F3,  KC_F10,                      XXXXXXX, KC_HOME, XXXXXXX,  KC_END, XXXXXXX, XXXXXXX,
+      KC_LSFT, XXXXXXX,   KC_F1,   KC_F2,   KC_F3,  KC_F10,                      XXXXXXX, KC_HOME, XXXXXXX,  KC_END, XXXXXXX, XXXXXXX,
   //|--------------------------------------------------------------|  |--------------------------------------------------------------|
                         XXXXXXX, WEB_OFF, XXXXXXX,  KC_LCTL, XXXXXXX,    KC_LALT, KC_LCTL, XXXXXXX, XXXXXXX, XXXXXXX
                      //`-------------------------------------------'   `-------------------------------------------'
@@ -311,7 +314,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+---------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       MY_LCTL,     HT_A, SEL_ALL, MY_SAVE, MY_COPY,MY_PRT_Z,                      KC_BSPC, XXXXXXX, _______,    HT_I,MY_OCIRC, MY_RCTL,
   //|--------+---------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      MY_LSFT,MY_COMENT, XXXXXXX, C_CEDIL,MY_PASTE,MY_PRT_S,                      XXXXXXX, XXXXXXX, FR_COLN, FR_SCLN, FR_EXLM, MY_LSFT,
+      KC_LSFT,MY_COMENT, XXXXXXX, C_CEDIL,MY_PASTE,MY_PRT_S,                      XXXXXXX, XXXXXXX, FR_COLN, FR_SCLN, FR_EXLM, KC_RSFT,
   //|---------------------------------------------------------------|   |-------------------------------------------------------------|
                          XXXXXXX, WEB_OFF, KC_LGUI,  MY_NAV,  HT_SPC,    KC_LALT,CSTM_ENT, XXXXXXX, XXXXXXX, XXXXXXX
                       //`-------------------------------------------'   `-------------------------------------------'
