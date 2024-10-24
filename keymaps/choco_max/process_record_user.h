@@ -705,6 +705,23 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       return false;
 
+    case ZOOM_TR:
+      if (record->event.pressed) {
+          // logic when pressed
+          set_scrolling = true;
+          SEND_STRING(SS_DOWN(X_LCTL));
+          // SEND_STRING(SS_DOWN(X_LSFT));
+          // SEND_STRING(SS_DELAY(1));
+          // SEND_STRING(SS_TAP(X_T));
+        } else {
+          set_scrolling = false;
+          SEND_STRING(SS_UP(X_LCTL));
+          // SEND_STRING(SS_UP(X_LSFT));
+          // logic when released
+        }
+        // press(MY_LCTL AND MY_LSFT)
+        return false;
+
     case MY_ESC:
       if (record->tap.count) { // Tap
         if (record->event.pressed) {
