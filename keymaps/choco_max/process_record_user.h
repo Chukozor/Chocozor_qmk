@@ -832,9 +832,9 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
           return 50;
         case FAST_SWITCH_GAME_COLEMAK:
           return 50;
-        case ACTIVE_NUMPAD:
-        case ACTIVE_NUMPAD2:
-          return 15;
+        case COMBO_ACTIVE_NUMPAD:
+        case COMBO_ACTIVE_NUMPAD2:
+          return 25;
         case COMBO_PRINT_SCREEN:
           return 25;
         default:

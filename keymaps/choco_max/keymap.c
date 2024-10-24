@@ -40,8 +40,8 @@ void toggle_game_mode(bool value){
 
 // ------------- COMBO ---------------
 enum combos {
-  ACTIVE_NUMPAD,
-  ACTIVE_NUMPAD2,
+  COMBO_ACTIVE_NUMPAD,
+  COMBO_ACTIVE_NUMPAD2,
   COMBO_MULTIMEDIA,
   COMBO_OSM_SHIFT,
   COMBO_CAPSLOCK,
@@ -88,8 +88,8 @@ const uint16_t PROGMEM combo_print_screen[] = {KC_R, KC_S, KC_T, COMBO_END};
 // const uint16_t PROGMEM bis_x_temp_active_RGB[] = {CSTM_ENT, HT_SPC, COMBO_END};
 // const uint16_t PROGMEM temp_active_RGB[] = {HT_ENT, HT_SPC, COMBO_END};
 combo_t key_combos[] = {
-    [ACTIVE_NUMPAD]=COMBO(temp_active_numpad, MO_NUMPAD),
-    [ACTIVE_NUMPAD2]=COMBO(temp_active_numpad2, MO_NUMPAD),
+    [COMBO_ACTIVE_NUMPAD]=COMBO(temp_active_numpad, MO_NUMPAD),
+    [COMBO_ACTIVE_NUMPAD2]=COMBO(temp_active_numpad2, MO_NUMPAD),
     [COMBO_MULTIMEDIA]=COMBO(temp_active_MULTIMEDIA, MO(_MULTIMEDIA)),
     // [TOGGLE_GAMING]=COMBO(toggle_gaming, TG(_AUX_GAME)),
     [TOGGLE_GAME]=COMBO(toggle_game, TG_GAME),
@@ -121,8 +121,8 @@ bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode
         //   if (layer_state_is(_LAYER_A)) {
         //     return false;
         //   }
-        case ACTIVE_NUMPAD:
-        case ACTIVE_NUMPAD2:
+        case COMBO_ACTIVE_NUMPAD:
+        case COMBO_ACTIVE_NUMPAD2:
         case FAST_SWITCH_GAME_COLEMAK_COMBO:
           if (layer_state_is(_GAME)) {
             return false;
