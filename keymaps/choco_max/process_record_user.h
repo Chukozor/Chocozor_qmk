@@ -3,8 +3,8 @@
 // ------------ For 40mm TRACKPAD ---------------
 // Modify these values to adjust the scrolling speed
 float aux_dpi = 0;
-#define SCROLL_DIVISOR_H_BASE 40.0   // Horizontal scroll speed
-#define SCROLL_DIVISOR_V_BASE 20.0   // Vertical scroll speed
+#define SCROLL_DIVISOR_H_BASE 55.0   // Horizontal scroll speed
+#define SCROLL_DIVISOR_V_BASE 30.0   // Vertical scroll speed
 
 float scroll_divisor_h = SCROLL_DIVISOR_H_BASE;
 float scroll_divisor_v = SCROLL_DIVISOR_V_BASE;
