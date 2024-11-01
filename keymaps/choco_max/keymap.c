@@ -44,6 +44,7 @@ enum combos {
   COMBO_ACTIVE_NUMPAD2,
   COMBO_MULTIMEDIA,
   COMBO_OSM_SHIFT,
+  // COMBO_OSM_SHIFT2,
   COMBO_CAPSLOCK,
   COMBO_BOOT,
   COMBO_BOOT2,
@@ -69,6 +70,7 @@ const uint16_t PROGMEM temp_active_numpad[] = {KC_N, HT_E, COMBO_END};
 const uint16_t PROGMEM temp_active_numpad2[] = {S(KC_N), S(KC_E), COMBO_END};
 const uint16_t PROGMEM temp_active_MULTIMEDIA[] = {KC_LGUI, MY_NAV, HT_SPC, COMBO_END};
 const uint16_t PROGMEM temp_active_SHIFT[] = {CSTM_ENT, HT_SPC, COMBO_END};
+// const uint16_t PROGMEM r[] = {MOFKEYS, CSTM_ENT, COMBO_END};
 const uint16_t PROGMEM combo_capslock[] = {KC_LSFT, KC_RSFT, COMBO_END};
 const uint16_t PROGMEM temp_active_boot[] = {MY_NAV,HT_SPC,KC_LGUI,KC_LALT,CSTM_ENT, COMBO_END};
 const uint16_t PROGMEM temp_active_boot2[] = {KC_LGUI,MY_NAV,HT_SPC,MOFKEYS, CSTM_ENT,KC_LALT, COMBO_END};
@@ -95,6 +97,7 @@ combo_t key_combos[] = {
     [TOGGLE_GAME]=COMBO(toggle_game, TG_GAME),
     [TOGGLE_GAME2]=COMBO(toggle_game2, TG_GAME),
     [COMBO_OSM_SHIFT]=COMBO(temp_active_SHIFT, OSM(MOD_LSFT)),
+    // [COMBO_OSM_SHIFT2]=COMBO(temp_active_SHIFT2, OSM(MOD_LSFT)),
     [COMBO_CAPSLOCK]=COMBO(combo_capslock, DBL_SHIFT),
     [COMBO_BOOT]=COMBO(temp_active_boot, QK_BOOT),
     [COMBO_BOOT2]=COMBO(temp_active_boot2, QK_BOOT),

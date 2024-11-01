@@ -3,8 +3,8 @@
 // ------------ For 40mm TRACKPAD ---------------
 // Modify these values to adjust the scrolling speed
 float aux_dpi = 0;
-#define SCROLL_DIVISOR_H_BASE 55.0   // Horizontal scroll speed
-#define SCROLL_DIVISOR_V_BASE 30.0   // Vertical scroll speed
+#define SCROLL_DIVISOR_H_BASE 45.0   // Horizontal scroll speed
+#define SCROLL_DIVISOR_V_BASE 25.0   // Vertical scroll speed
 
 float scroll_divisor_h = SCROLL_DIVISOR_H_BASE;
 float scroll_divisor_v = SCROLL_DIVISOR_V_BASE;
@@ -859,6 +859,8 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
         case COMBO_ACTIVE_NUMPAD:
         case COMBO_ACTIVE_NUMPAD2:
           return 25;
+        // case COMBO_OSM_SHIFT2:
+        //   return 30;
         case COMBO_PRINT_SCREEN:
           return 25;
         default:
