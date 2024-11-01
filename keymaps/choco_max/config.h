@@ -74,7 +74,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define POINTING_DEVICE_RIGHT
 // #define CIRQUE_PINNACLE_CURVED_OVERLAY
 #define DEBOUNCE 5
-// #define F_SCL 100000L
+#define F_SCL 100000L
 
 
 // // ========== 35mm flat ==========
