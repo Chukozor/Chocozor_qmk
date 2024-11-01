@@ -137,6 +137,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define COMBO_TERM 50
 #define COMBO_TERM_PER_COMBO
 
+// =====================================================================
+// #define UNICODE_ENABLE
+// #define UNICODE_SELECTED_MODES UNICODE_MODE_LINUX
+// // #define UNICODE_SELECTED_MODES UC_LINX
+// =====================================================================
+
 // #ifdef RGB_MATRIX_ENABLE
 
 #   define RGB_MATRIX_KEYPRESSES // reacts to keypresses

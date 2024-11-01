@@ -33,6 +33,7 @@
             // here we don't alter its «release» default behavior (hence, return true)
             return true;
           }
+
         case MY_BSLH:
           if (record->event.pressed) {
             register_code(KC_RALT);
@@ -44,6 +45,7 @@
             // here we don't alter its «release» default behavior (hence, return true)
             return true;
           }
+
         case MY_DOLL:
           if (record->event.pressed) {
             tap_code(KC_RBRC);
@@ -53,6 +55,7 @@
             // here we don't alter its «release» default behavior (hence, return true)
             return true;
           }
+          
         case MY_DIESE:
           if (record->event.pressed) {
             add_mods(MOD_BIT_RALT);
@@ -64,6 +67,7 @@
             // here we don't alter its «release» default behavior (hence, return true)
             return true;
           }
+
         case MY_EURO:
           if (record->event.pressed) {
             add_mods(MOD_BIT_RALT);
@@ -75,6 +79,7 @@
             // here we don't alter its «release» default behavior (hence, return true)
             return true;
           }
+
         case MY_TILD:
           if (record->event.pressed) {
             // add_mods(MOD_BIT_LALT);
@@ -95,6 +100,7 @@
             // here we don't alter its «release» default behavior (hence, return true)
             return true;
           }
+
         case MY_BQUOT:
           if (record->event.pressed) {
             // add_mods(MOD_BIT_LALT);
@@ -114,6 +120,24 @@
             // here we don't alter its «release» default behavior (hence, return true)
             return true;
           }
+
+        case MY_BQUOT2:
+          if (record->event.pressed) {
+            add_mods(MOD_BIT_LALT);
+            tap_code(KC_KP_0);
+            tap_code(KC_KP_9);
+            tap_code(KC_KP_6);
+            unregister_mods(MOD_BIT_LALT);
+          }
+          return false;
+
+        // case MY_BQUOT3:
+        //     if (record->event.pressed) {
+        //         // Envoie le caractère Unicode pour le backquote
+        //         send_unicode_string("‘");
+        //     }
+        //     break;
+
         case MY_PIPE:
           if (record->event.pressed) {
             // add_mods(MOD_BIT_LCTRL);

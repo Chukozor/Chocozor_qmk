@@ -57,7 +57,8 @@ enum combos {
   TOGGLE_RGB,
   COMBO_CLEAR_EEPROM,
   COMBO_WEB,
-  COMBO_PRINT_SCREEN
+  COMBO_PRINT_SCREEN,
+  // ...,
   // COMBO_E_AIGU
 };
 
@@ -84,6 +85,7 @@ const uint16_t PROGMEM toggle_RGB[] = {MOFKEYS, CSTM_ENT,KC_LALT, COMBO_END};
 const uint16_t PROGMEM combo_clear_eeprom[] = {RGB_TOG, ____MOD, _I_COUL, __I_LUM, __I_SAT, COMBO_END};
 const uint16_t PROGMEM combo_web[] = {MY_LCTL, MY_RCTL, COMBO_END};
 const uint16_t PROGMEM combo_print_screen[] = {KC_R, KC_S, KC_T, COMBO_END};
+// const uint16_t PROGMEM ...[] = {..., ..., COMBO_END};
 // const uint16_t PROGMEM toggle_gaming_2[] = {FR_Q, KC_R, KC_C, KC_F, KC_T, COMBO_END};
 // const uint16_t PROGMEM temp_active_e_aigu[] = {HT_SPC, HT_E, COMBO_END};
 // const uint16_t PROGMEM bis_temp_active_RGB[] = {HT_ENT, HT_SPC, COMBO_END};
@@ -108,6 +110,7 @@ combo_t key_combos[] = {
     [COMBO_CLEAR_EEPROM]=COMBO(combo_clear_eeprom, QK_CLEAR_EEPROM),
     [COMBO_WEB]=COMBO(combo_web, TG(_WEB_BROWSER)),
     [COMBO_PRINT_SCREEN]=COMBO(combo_print_screen, KC_PSCR),
+    // [...]=COMBO(combo_my_bquote2, ...),
     // [COMBO_OSL_RGB]=COMBO(temp_active_RGB, OSL(_RGB)),
     // [TOGGLE_GAMING_2]=COMBO(toggle_gaming_2, TG(_GAMING)),
     // COMBO(temp_active_SHIFT, COMBO_SHIFT), 
@@ -182,7 +185,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------+--------|
       KC_LSFT,    FR_Q,    KC_X,    KC_C,    KC_V,    KC_B,                           KC_K,    FR_M, FR_COMM,  FR_DOT, FR_QUES, KC_RSFT,
   //|--------------------------------------------------------------|     |-------------------------------------------------------------|
-                           FR_Z, XXXXXXX, KC_LGUI,  MY_NAV,  HT_SPC,      MOFKEYS, CSTM_ENT,KC_LALT, XXXXXXX, MO_NAV
+                           FR_Z, XXXXXXX, KC_LGUI,  MY_NAV,  HT_SPC,      MOFKEYS, CSTM_ENT,KC_LALT, XXXXXXX, KC_LSFT
                      //`-------------------------------------------'     `-------------------------------------------'
   ),
     // OTHER_GAMING for gaming
@@ -327,7 +330,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,---------------------------------------------------------.
        MY_ESC, MY_TILD, FR_LBRC, XXXXXXX, FR_RBRC,MY_DIESE,                      FR_PERC, FR_LCBR,   FR_UNDS, FR_RCBR,   FR_AMPR,  KC_TAB,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+----------+--------+----------+--------|
-      MY_LCTL,   FR_AT, KC_PMNS,  KC_EQL, KC_PPLS, MY_DOLL,                      FR_ASTR,MY_BQUOT,   FR_QUOT, FR_DQUO,S(KC_MINS), MY_RCTL,
+      MY_LCTL,   FR_AT, KC_PMNS,  KC_EQL, KC_PPLS, MY_DOLL,                      FR_ASTR,MY_BQUOT3,   FR_QUOT, FR_DQUO,S(KC_MINS), MY_RCTL,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+----------+--------+----------+--------|
       _______, XXXXXXX, KC_PSLS, MY_PIPE, KC_PAST, MY_EURO,                   ALGR(KC_9), FR_LPRN,ALGR(KC_8), FR_RPRN,   XXXXXXX, _______,
   //|--------------------------------------------------------------|  |------------------------------------------------------------------|

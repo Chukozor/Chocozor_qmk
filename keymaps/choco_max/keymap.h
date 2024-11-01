@@ -107,6 +107,8 @@ enum custom_keycodes {
     MY_EURO,
     MY_TILD,
     MY_BQUOT,
+    MY_BQUOT2,
+    MY_BQUOT3,
     C_CEDIL,
     MY_OCIRC,
     MY_PRT_S,
