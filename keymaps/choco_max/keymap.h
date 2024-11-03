@@ -170,4 +170,5 @@ enum custom_keycodes {
     DBL_SHIFT,
     ZOOM_TR,
     TG_SCROL,
+    AUX_WEB,
 };

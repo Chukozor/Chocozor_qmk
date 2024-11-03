@@ -45,6 +45,7 @@ bool alt_tab_menu = false;
 bool ky_webnav = false;
 bool ky_spc = false;
 bool set_scrolling = false;
+bool web_aux = false;
 
 #include "custom_files/functions_record_user.h"
 
@@ -255,8 +256,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           unregister_code(KC_LCTL);
         }
       }
-      if (record->event.pressed) {
-        tap_code(KC_TAB);
+      if (web_aux){
+        if (record->event.pressed) {
+          SEND_STRING(SS_DOWN(X_WFWD));
+        } else {
+          SEND_STRING(SS_UP(X_WFWD));
+        }
+      } else {
+        if (record->event.pressed) {
+          tap_code(KC_TAB);
+        }
       }
       return false;
 
@@ -274,8 +283,17 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           unregister_code(KC_LCTL);
         }
       }
-      if (record->event.pressed) {
-          SEND_STRING(SS_LSFT(SS_TAP(X_TAB)));
+      
+      if (web_aux){
+        if (record->event.pressed) {
+          SEND_STRING(SS_DOWN(X_WBAK));
+        } else {
+          SEND_STRING(SS_UP(X_WBAK));
+        }
+      } else {
+        if (record->event.pressed) {
+            SEND_STRING(SS_LSFT(SS_TAP(X_TAB)));
+        }
       }
       return false;
 
@@ -722,6 +740,17 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         // press(MY_LCTL AND MY_LSFT)
         return false;
 
+    case AUX_WEB:
+      if (record->event.pressed) {
+          // logic when pressed
+          web_aux = true;
+          SEND_STRING(SS_DOWN(X_WFWD));
+        } else {
+          web_aux = false;
+          SEND_STRING(SS_UP(X_WFWD));
+        }
+        return false;
+        
     case TG_SCROL:
       if (record->event.pressed) {
           // logic when pressed
@@ -754,6 +783,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           set_scrolling = false;
           nav_verrouillee = false;
           combo_nav_activated = false;
+          web_aux = false;
           // spc_is_held = false;
           layer_move(_COLEMAK_FR);
           if (record->tap.interrupted) {

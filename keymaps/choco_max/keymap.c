@@ -284,11 +284,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----------------------------------------------------------.                    ,--------------------------------------------------------.
        MY_ESC,  XXXXXXX, XXXXXXX, WEB_TAB,  C(KC_T), RCS(KC_P),                    RCS(KC_P), C(KC_T), WEB_TAB, XXXXXXX,   XXXXXXX, XXXXXXX,
   //|--------+---------+--------+--------+---------+----------|                    |--------+--------+--------+--------+----------+--------|
-      MY_LCTL,RCS(KC_O),   WEB_G, KC_LALT,    WEB_D,  C(KC_N),                       C(KC_N),   WEB_G, KC_LALT,   WEB_D, RCS(KC_O), MY_RCTL,
+      MY_LCTL,RCS(KC_O),   WEB_G, XXXXXXX,    WEB_D,  C(KC_N),                       C(KC_N),   WEB_G, KC_WHOM,   WEB_D, RCS(KC_O), MY_RCTL,
   //|--------+---------+--------+--------+---------+----------|                    |--------+--------+--------+--------+----------+--------|
       KC_LSFT,  XXXXXXX, XXXXXXX, C(KC_D),  XXXXXXX, RCS(KC_N),                    RCS(KC_N), XXXXXXX, C(KC_D), XXXXXXX,   XXXXXXX, XXXXXXX,
   //|------------------------------------------------------------------|   |---------------------------------------------------------------|
-                         XXXXXXX,  XXXXXXX, KC_LGUI,    MY_NAV,  HT_SPC,    KC_LALT,CSTM_ENT, NAV_LFT, XXXXXXX, XXXXXXX
+                         XXXXXXX,  XXXXXXX, KC_LGUI,    MY_NAV,  HT_SPC,    KC_LALT, AUX_WEB, XXXXXXX, XXXXXXX, XXXXXXX
                       //`----------------------------------------------'   `-------------------------------------------'
   ),
     [_OP_NAV] = CHOCO_MAX(
